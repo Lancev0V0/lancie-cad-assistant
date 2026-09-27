@@ -1,3 +1,30 @@
+# 小兰CAD助手
+
+基于 [Open CAD Studio](https://github.com/HakanSeven12/OpenCADStudio) 的 Windows CAD 看图、测量与批注工具，目标是逐步替代 CAD 快速看图的日常使用场景。
+
+- **状态**：开发初始化阶段。当前保留上游程序实现；尚未完成小兰品牌界面、专用看图模式或实际施工图验收，不代表已实现完整平替。
+- **范围**：先做 Windows 桌面端，优先看图、测量、批注、统计和打印；手机与云同步暂不纳入。
+- **来源**：初始上游提交 `78c9128a69f607bfaf5b7fbcbeefb9990d173eca`，包版本 `2026.38.0`。`origin` 指向本 fork，`upstream` 指向原项目。
+- **许可**：沿用 GPL-3.0，保留上游版权及第三方许可。下方保留上游说明，其中下载、发布与赞助链接指向原项目。
+
+## 开发入口与验证
+
+在仓库根目录执行（当前程序及构建目标仍名为 `OpenCADStudio`）：
+
+```powershell
+cargo metadata --no-deps --format-version 1 --offline
+cargo build --locked --release --bin OpenCADStudio
+.\target\release\OpenCADStudio.exe
+```
+
+已验证本地 Cargo 工作区元数据可解析；尚未编译、启动 GUI 或验证真实 DWG。首次构建需要下载 Cargo 和 Git 依赖，并具备 Windows MSVC 构建工具。
+
+下一步：用有权使用的代表性图纸验证中文字体、尺寸、天正对象、布局与外部参照、测量准确性和打印比例，再改造默认只读的看图界面与独立批注保存。私人图纸及字体放入已忽略的 `local-samples/`，不要提交到公开仓库。
+
+---
+
+## 上游项目说明
+
 <p align="center">
   <a href="README.md">English</a> ·
   <a href="docs/readme/README.bg.md">Български</a> ·
